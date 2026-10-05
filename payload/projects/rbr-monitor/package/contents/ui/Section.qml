@@ -18,34 +18,29 @@ Item {
         height: s.height
         color: s.color
         LText {
+            id: codeText
             anchors { right: parent.right; top: parent.top; margins: 0.6 * s.u }
             text: s.code
             color: Rbr.ink(s.color)
             font.pixelSize: 1.4 * s.u
         }
-        Column {
+        LText {
+            anchors { right: parent.right; top: codeText.bottom; rightMargin: 0.6 * s.u; topMargin: 0.3 * s.u }
+            visible: s.sublabel !== ""
+            text: s.sublabel
+            color: Rbr.ink(s.color)
+            opacity: 0.7
+            font.pixelSize: 1.4 * s.u
+        }
+        LText {
             anchors { right: parent.right; bottom: parent.bottom; margins: 0.6 * s.u; bottomMargin: 0.2 * s.u }
             width: s.sidebarWidth - 1.2 * s.u
-            LText {
-                width: parent.width
-                visible: s.sublabel !== ""
-                horizontalAlignment: Text.AlignRight
-                text: s.sublabel
-                color: Rbr.ink(s.color)
-                opacity: 0.7
-                font.pixelSize: 1.4 * s.u
-            }
-            LText {
-                width: parent.width
-                horizontalAlignment: Text.AlignRight
-                wrapMode: Text.WordWrap
-                lineHeight: 0.85
-                fontSizeMode: Text.HorizontalFit
-                minimumPixelSize: 1.6 * s.u
-                text: s.label
-                color: Rbr.ink(s.color)
-                font.pixelSize: 2.6 * s.u
-            }
+            horizontalAlignment: Text.AlignRight
+            fontSizeMode: Text.HorizontalFit
+            minimumPixelSize: 1.6 * s.u
+            text: s.label
+            color: Rbr.ink(s.color)
+            font.pixelSize: 2.6 * s.u
         }
     }
 
