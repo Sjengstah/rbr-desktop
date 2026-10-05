@@ -39,6 +39,34 @@ The Plasma Style and window decoration are based on *Carl* by jomada (credit kep
 - **Reinstall after changes:** `~/rbr-desktop/payload/projects/rbr-theme/install.sh`
 - **Switch:** System Settings → Colors & Themes → Global Theme → RBR (or back to Carl).
 
+### RBR Live wallpaper
+
+`payload/projects/rbr-wallpaper/` is a wallpaper plugin (`org.sjengstah.rbrwallpaper`) that draws
+the RBR wallpaper in QML, so it is sharp at any resolution, and fills the three sectors with F1 data:
+
+| Sector | Shows |
+|---|---|
+| 1 | Next race and a countdown to its next session (FP1, sprint, quali, race); green **LIVE** while a session runs |
+| 2 | Podium of the last race |
+| 3 | Drivers' championship top 3 with points |
+
+The blue bar next to "RBR 01" fills one step per completed round. Data comes from the free
+Jolpica F1 API (no key), refreshed every 30 minutes; offline it keeps the last data and retries
+every 5 minutes. The static picture version (`rbr-theme/wallpapers/RBR`) is still there for
+the lock screen or if you prefer it.
+
+- **Settings:** right-click the desktop → Configure Desktop and Wallpaper → RBR Live:
+  top and bottom panel height (so the labels stay clear of your panels; 0 = no panel) and
+  the F1 data on/off switch.
+- **After editing the code:**
+  ```sh
+  kpackagetool6 -t Plasma/Wallpaper -u ~/rbr-desktop/payload/projects/rbr-wallpaper/package
+  systemctl --user restart plasma-plasmashell
+  ```
+- **Static images:** `rbr-theme/wallpapers/render.sh` renders the picture version in common
+  sizes; `make-wallpaper.py W H [SCALE] [TOP_PANEL] [BOTTOM_PANEL]` makes one for an exact screen.
+- **Remove:** pick another wallpaper type, then `kpackagetool6 -t Plasma/Wallpaper -r org.sjengstah.rbrwallpaper`
+
 ### Panel transparency
 
 ```sh

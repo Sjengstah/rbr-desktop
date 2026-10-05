@@ -53,7 +53,8 @@ code bothers you, this repo isn't for you, and that's fine.
 | Part | Folder | What it does |
 |---|---|---|
 | Global theme | `payload/projects/rbr-theme/` | Plasma Style, colour scheme, window decoration, wallpaper, splash, all named **RBR** |
-| System Monitor | `payload/projects/rbr-monitor/` | CPU, GPU, memory, network and disks, as a desktop or panel widget |
+| Live wallpaper | `payload/projects/rbr-wallpaper/` | **RBR Live**: the wallpaper drawn live, with F1 season data in the three sectors (next session countdown, last podium, championship top 3) |
+| System Monitor | `payload/projects/rbr-monitor/` | Engine (CPU), ERS boost (GPU), fuel load (memory), team radio (network) and garage (disks), as a desktop or panel widget |
 | Control Center | `payload/projects/rbr-control/` | Wi-Fi, Bluetooth, power profiles, caffeine, Do Not Disturb, Night Light, volume, quick actions |
 | Notification Center | `payload/projects/rbr-control/` | Notification history and RBR-styled popups that replace KDE's |
 | Audio overlay | `payload/projects/rbr-audio/` | Game Bar–style volume panel on **Meta+G**, drawn over everything |
@@ -133,6 +134,9 @@ Each part also installs on its own, as your normal user:
 kpackagetool6 -t Plasma/Applet -i payload/projects/rbr-monitor/package
 cd payload/projects/rbr-control && ./build.sh install && cd -
 
+# Live wallpaper (then right-click the desktop → Configure Desktop and Wallpaper → RBR Live)
+kpackagetool6 -t Plasma/Wallpaper -i payload/projects/rbr-wallpaper/package
+
 # Global theme, icons, audio overlay
 payload/projects/rbr-theme/install.sh
 payload/projects/rbr-icons/install.sh
@@ -146,6 +150,7 @@ See the HOWTO for each part.
 ## Undo
 
 - Theme: System Settings → Colors & Themes → Global Theme → pick another one.
+- Live wallpaper: right-click the desktop → Configure Desktop and Wallpaper → pick another wallpaper type, then `kpackagetool6 -t Plasma/Wallpaper -r org.sjengstah.rbrwallpaper`.
 - RBR popups: Notification Center → Configure → untick "Replace KDE's notification popups".
 - Widgets: remove them from the panel, then `kpackagetool6 -t Plasma/Applet -r <id>`.
 - Audio overlay: `payload/projects/rbr-audio/uninstall.sh`.
@@ -160,6 +165,7 @@ See the HOWTO for each part.
   (Plasma Style LGPL, Aurorae decoration GPL-3.0). Credit is kept in their metadata.
 - **Barlow Condensed** font (SemiBold Italic) by Jeremy Tribby: SIL Open Font License (`OFL.txt` next to each copy).
 - The generated RBR wallpaper: CC-BY-SA-4.0.
+- F1 data in RBR Live comes from the free [Jolpica F1 API](https://github.com/jolpica/jolpica-f1) (the Ergast successor). The wallpaper asks it for the schedule, last result and standings every 30 minutes; nothing else is sent. Turn it off in the wallpaper settings.
 - Red Bull, Red Bull Racing and Formula 1 are trademarks of their respective owners. This is an unofficial fan project that only borrows a colour palette; it contains no team logos or artwork and is not affiliated with or endorsed by them.
 - Forked from the [LCARS desktop](https://github.com/Sjengstah/lcars-desktop); the layout and code structure are the same.
 - Written with a lot of help from Claude (Anthropic).

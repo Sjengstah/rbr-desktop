@@ -170,6 +170,11 @@ if [[ -d "$PAYLOAD/plasmoids" ]]; then  # optional extra widgets, if you add any
 fi
 run "$SRC/rbr-audio/install.sh"
 
+# RBR Live wallpaper (the RBR wallpaper drawn live, with F1 season data in the sectors)
+run rm -rf "$DATA/plasma/wallpapers/org.sjengstah.rbrwallpaper"
+run kpackagetool6 -t Plasma/Wallpaper -i "$SRC/rbr-wallpaper/package" >/dev/null
+info "wallpaper: org.sjengstah.rbrwallpaper (RBR Live)"
+
 # Meta+G for the audio overlay (taken from KWin's Grid View)
 run kwriteconfig6 --file kglobalshortcutsrc --group kwin --key "Grid View" "none,Meta+G,Toggle Grid View"
 run kwriteconfig6 --file kglobalshortcutsrc --group services --group rbr-audio.desktop --key _launch "Meta+G"
@@ -192,6 +197,22 @@ if $DRY; then
     info "[dry-run] would run a $(wc -l < "$WORK/layout.js")-line Plasma layout script"
 else
     qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "$(cat "$WORK/layout.js")" | sed 's/^/  /'
+fi
+
+# Every desktop gets RBR Live, told how tall the panels are so its labels stay clear.
+read -r ptop pbottom < <(python3 -c '
+import json, sys
+panels = json.load(open(sys.argv[1])).get("panels", [])
+h = lambda loc: max([p.get("thickness", 0) for p in panels if p.get("location") == loc] or [0])
+print(h("top"), h("bottom"))' "$PAYLOAD/layout.json")
+live_js="desktops().forEach(function (d) { d.wallpaperPlugin = 'org.sjengstah.rbrwallpaper';
+  d.currentConfigGroup = ['Wallpaper', 'org.sjengstah.rbrwallpaper', 'General'];
+  d.writeConfig('PanelTop', $ptop); d.writeConfig('PanelBottom', $pbottom); });"
+if $DRY; then
+    info "[dry-run] would set the RBR Live wallpaper (panels: top ${ptop}px, bottom ${pbottom}px)"
+else
+    qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "$live_js" >/dev/null
+    info "wallpaper: RBR Live on every desktop"
 fi
 
 # ── 6. GTK and Flatpak ──────────────────────────────────────────────

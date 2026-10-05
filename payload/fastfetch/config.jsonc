@@ -13,7 +13,7 @@
   },
   "display": {
     "separator": "  ",
-    "key": { "width": 24 },
+    "key": { "width": 28 },
     "color": { "keys": "38;2;219;10;64", "output": "38;2;232;237;247" }
   },
   "modules": [
@@ -23,33 +23,33 @@
     },
     {
       "type": "command",
-      "key": "{#38;2;198;214;247}▐█ LAP",
+      "key": "{#38;2;198;214;247}▐█ LAP (DAY)",
       // the year is the race, each day a lap (same as Rbr.qml lap())
       "text": "echo \"$(date +%-j)/$(date -d \"$(date +%Y)-12-31\" +%-j)\""
     },
     {
       "type": "title",
-      "key": "{#38;2;198;214;247}▐█ DRIVER",
+      "key": "{#38;2;198;214;247}▐█ DRIVER (USER)",
       "format": "{user-name}@{host-name}"
     },
     "break",
     { "type": "custom", "format": "{#38;2;54;113;198}▐███ {#1;38;2;54;113;198}CAR SETUP {#0;38;2;54;113;198}███████████████████████▌" },
-    { "type": "os",       "key": "▐█ CHASSIS" },
-    { "type": "kernel",   "key": "▐█ ECU FIRMWARE" },
-    { "type": "uptime",   "key": "▐█ RACE TIME" },
-    { "type": "packages", "key": "▐█ PARTS LIST" },
-    { "type": "shell",    "key": "▐█ STEERING WHEEL" },
-    { "type": "de",       "key": "▐█ COCKPIT" },
-    { "type": "terminal", "key": "▐█ DASH DISPLAY" },
+    { "type": "os",       "key": "▐█ CHASSIS (OS)" },
+    { "type": "kernel",   "key": "▐█ ECU FIRMWARE (KERNEL)" },
+    { "type": "uptime",   "key": "▐█ RACE TIME (UPTIME)" },
+    { "type": "packages", "key": "▐█ PARTS LIST (PACKAGES)" },
+    { "type": "shell",    "key": "▐█ STEERING WHEEL (SHELL)" },
+    { "type": "de",       "key": "▐█ COCKPIT (DESKTOP)" },
+    { "type": "terminal", "key": "▐█ DASH DISPLAY (TERMINAL)" },
     "break",
     { "type": "custom", "format": "{#38;2;255;201;6}▐███ {#1;38;2;255;201;6}POWER UNIT {#0;38;2;255;201;6}██████████████████████▌" },
-    { "type": "cpu",      "key": "▐█ ENGINE", "temp": true },
-    { "type": "gpu",      "key": "▐█ ERS BOOST" },
-    { "type": "memory",   "key": "▐█ FUEL LOAD" },
-    { "type": "swap",     "key": "▐█ RESERVE FUEL" },
-    { "type": "disk",     "key": "▐█ GARAGE {mountpoint}", "folders": "/" },
-    { "type": "display",  "key": "▐█ ONBOARD CAMERA" },
-    { "type": "localip",  "key": "▐█ TELEMETRY LINK" },
+    { "type": "cpu",      "key": "▐█ ENGINE (CPU)", "temp": true },
+    { "type": "gpu",      "key": "▐█ ERS BOOST (GPU)" },
+    { "type": "memory",   "key": "▐█ FUEL LOAD (MEMORY)" },
+    { "type": "swap",     "key": "▐█ RESERVE FUEL (SWAP)" },
+    { "type": "disk",     "key": "▐█ GARAGE (STORAGE) {mountpoint}", "folders": "/" },
+    { "type": "display",  "key": "▐█ ONBOARD CAMERA (DISPLAY)" },
+    { "type": "localip",  "key": "▐█ TEAM RADIO (NETWORK)" },
     "break",
     {
       "type": "custom",

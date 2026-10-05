@@ -124,7 +124,8 @@ Item {
             u: view.u
             sidebarWidth: view.sw
             color: Rbr.orange
-            label: "CPU"
+            label: "ENGINE"
+            sublabel: "CPU"
             code: "01-" + (view.mon ? view.mon.threads : 0)
 
             Column {
@@ -194,7 +195,8 @@ Item {
             u: view.u
             sidebarWidth: view.sw
             color: Rbr.violet
-            label: "GPU"
+            label: "ERS BOOST"
+            sublabel: "GPU"
             code: "02-" + Math.round(view.mon.vramTotal / 1073741824)
 
             Column {
@@ -263,7 +265,8 @@ Item {
             u: view.u
             sidebarWidth: view.sw
             color: Rbr.lilac
-            label: "MEMORY"
+            label: "FUEL LOAD"
+            sublabel: "MEMORY"
             code: "03-" + Math.round(view.mon.memTotalB / 1073741824)
 
             Column {
@@ -300,7 +303,8 @@ Item {
             u: view.u
             sidebarWidth: view.sw
             color: Rbr.peach
-            label: "COMMS"
+            label: "TEAM RADIO"
+            sublabel: "NETWORK"
             code: "04-" + Rbr.shortRate(view.mon.netPeak)
 
             Row {
@@ -355,7 +359,8 @@ Item {
             u: view.u
             sidebarWidth: view.sw
             color: Rbr.blue
-            label: "STORAGE"
+            label: "GARAGE"
+            sublabel: "STORAGE"
             code: "05-" + view.diskCount
 
             Column {

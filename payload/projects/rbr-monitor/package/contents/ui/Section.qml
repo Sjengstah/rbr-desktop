@@ -6,6 +6,7 @@ Item {
     id: s
 
     property string label
+    property string sublabel  // plain name under the F1 one, e.g. "CPU" for ENGINE
     property string code
     property color color: Rbr.orange
     property real u: 8
@@ -22,11 +23,29 @@ Item {
             color: Rbr.ink(s.color)
             font.pixelSize: 1.4 * s.u
         }
-        LText {
+        Column {
             anchors { right: parent.right; bottom: parent.bottom; margins: 0.6 * s.u; bottomMargin: 0.2 * s.u }
-            text: s.label
-            color: Rbr.ink(s.color)
-            font.pixelSize: 2.6 * s.u
+            width: s.sidebarWidth - 1.2 * s.u
+            LText {
+                width: parent.width
+                visible: s.sublabel !== ""
+                horizontalAlignment: Text.AlignRight
+                text: s.sublabel
+                color: Rbr.ink(s.color)
+                opacity: 0.7
+                font.pixelSize: 1.4 * s.u
+            }
+            LText {
+                width: parent.width
+                horizontalAlignment: Text.AlignRight
+                wrapMode: Text.WordWrap
+                lineHeight: 0.85
+                fontSizeMode: Text.HorizontalFit
+                minimumPixelSize: 1.6 * s.u
+                text: s.label
+                color: Rbr.ink(s.color)
+                font.pixelSize: 2.6 * s.u
+            }
         }
     }
 
