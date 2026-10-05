@@ -5,7 +5,9 @@ angular pit-wall graphics): a global theme, a system monitor widget,
 a control center, a notification center with RBR popups, a Meta+G audio overlay,
 an icon set and an RBR fastfetch, plus a script that sets it all up.
 
-![RBR wallpaper](docs/preview-wallpaper.png)
+![RBR desktop with the System Monitor and a notification popup](docs/RBR1.png)
+
+<sub>The two round gauges in the top panel are a separate third-party widget, not included.</sub>
 
 | System Monitor | Control Center |
 |---|---|
@@ -15,7 +17,7 @@ an icon set and an RBR fastfetch, plus a script that sets it all up.
 
 ![Boot splash](docs/preview-splash.png)
 
-<sub>These are offscreen renders of the widgets with sample data, not desktop screenshots.</sub>
+<sub>The System Monitor, Control Center and splash images are offscreen renders with sample data.</sub>
 
 ---
 
