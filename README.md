@@ -3,21 +3,19 @@
 An F1 Red Bull Racing–style look for KDE Plasma 6 (matte navy, red, yellow and team blue,
 angular pit-wall graphics): a global theme, a system monitor widget,
 a control center, a notification center with RBR popups, a Meta+G audio overlay,
-an icon set and an RBR fastfetch, plus a script that sets it all up.
+an icon set, an RBR fastfetch and a live wallpaper with F1 season data, plus a script
+that sets it all up.
 
-![RBR desktop with the System Monitor and a notification popup](docs/RBR1.png)
+![RBR desktop with the System Monitor and the Control Center](docs/RBR2.png)
 
-<sub>The two round gauges in the top panel are a separate third-party widget, not included.</sub>
-
-| System Monitor | Control Center |
+| Notification Center, RBR Live sectors | Audio overlay (Meta+G) |
 |---|---|
-| ![System Monitor](docs/preview-monitor.png) | ![Control Center](docs/preview-control.png) |
+| ![Notification Center and the live F1 sectors on the wallpaper](docs/RBR3.png) | ![Audio overlay](docs/RBR4.png) |
+| **RBR notification popups** | **Boot splash** |
+| ![Notification popup](docs/RBR1.png) | ![Boot splash](docs/preview-splash.png) |
 
-**Boot splash:** five red start lights come on while Plasma loads, then "lights out and away we go".
-
-![Boot splash](docs/preview-splash.png)
-
-<sub>The System Monitor, Control Center and splash images are offscreen renders with sample data.</sub>
+<sub>The boot splash, five red start lights and then "lights out and away we go", is an offscreen
+render. The two round gauges in the top panel are a separate third-party widget, not included.</sub>
 
 ---
 
