@@ -1,0 +1,10 @@
+{
+  "services": {
+    "[services][rbr-audio.desktop]": {
+      "_launch": "Meta+G"
+    }
+  },
+  "kwin": {
+    "Grid View": "none,Meta+G,Toggle Grid View"
+  }
+}
